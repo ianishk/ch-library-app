@@ -7,7 +7,7 @@ function SearchBar() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    navigate(`/search/${query}`);
+    navigate(`/search?title=${query}`);
   };
 
   return (

@@ -1,33 +1,18 @@
-import {React, useEffect, useState} from 'react'
+import {React} from 'react'
 import {useNavigate} from 'react-router-dom';
-import axios from 'axios';
 
-const BookCard = ({bookId}) => {
-
+const BookCard = ({book}) => {
     const navigate = useNavigate();
-    const [bookResults, setBookResults ] = useState('');
-
-    useEffect(() => {
-    
-        axios.get(`https://openlibrary.org${bookId}.json`)
-        .then((response) => {
-          setBookResults(response);
-        
-        })
-      }, [bookId]);
-
-        
 
     const handleClick = () =>{
-        navigate(`/book/:${bookId}`);
+        navigate(`/book/:${book}`);
     }
 
   return (
     <div onClick={handleClick}>
-        <p>BookCard {bookId}</p>
-        <p>{bookResults.title}</p>
-        <p>{bookResults.subtitle}</p>
-        </div>
+        <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}  alt='loading'/>
+        <p>{book.title}</p>
+    </div>
   )
 }
 
