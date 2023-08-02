@@ -9,10 +9,11 @@ function SearchResults() {
 
   useEffect(() => {    
     axios.get(`https://openlibrary.org/search.json?q=${searchParams.get("title")}`).then((response) => {
-      console.log(response.data.docs)
       setResults(response.data.docs);
     });
   }, [searchParams]);
+
+  if (!results.length) return <div>Loading...</div>;
 
   return (
     <div>

@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<SearchBar/>} />
         <Route exact path="/search" element={<SearchResults/>} />
-        <Route exact path="/book/:bookId"  element={<BookDetails/>} />
+        <Route exact path="/book/works/:bookId"  element={<BookDetails/>} />
       </Routes>
     </Router>
   );

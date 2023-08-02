@@ -5,13 +5,13 @@ const BookCard = ({book}) => {
     const navigate = useNavigate();
 
     const handleClick = () =>{
-        navigate(`/book/:${book}`);
+        navigate(`/book${book.key}`);
     }
 
   return (
     <div onClick={handleClick}>
-        <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}  alt='loading'/>
         <p>{book.title}</p>
+        <img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}  alt='loading'/>
     </div>
   )
 }
