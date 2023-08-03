@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function BookDetails() {
@@ -31,10 +31,10 @@ function BookDetails() {
       <div style={{display: 'flex', gap: '1rem', overflowX: 'scroll'}}>
         {relatedBooks.slice(0,5).map(relatedBook => {
           return(
-            <div>
+            <Link to={`/book${relatedBook.key}`}>
               <p>{relatedBook.title}</p>
               <img src={`https://covers.openlibrary.org/b/id/${relatedBook?.covers?.[0]}-M.jpg`} alt="loading" />
-            </div>
+            </Link>
           )
         })}
       </div>
